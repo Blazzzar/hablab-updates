@@ -1,0 +1,24 @@
+{
+	"name": "HAB•LAB",
+	"slug": "hablab",
+	"homepage": "https://github.com/Blazzzar/hablab",
+	"channels": {
+		"stable": {
+			"version": "1.8.0",
+			"requires": "5.8",
+			"tested": "6.8",
+			"requires_php": "7.4",
+			"download_url": "https://blazzzar.github.io/hablab-updates/zips/hablab-1.8.0.zip",
+			"sections": {
+				"changelog": "<h4>1.8.0</h4><p>Full identity rename: plugin slug/basename is now `hablab/hablab.php`, and every internal identifier moved off the old name — classes `Hablab_*`, constants `HABLAB_*`, `wp_hablab_*` tables, REST namespace `hablab/v1`, auth header `X-Hablab-Token`, options/hooks/nonces `hablab_*`, SW cache + backup format `hablab-*`, repos `Blazzzar/hablab` + `hablab-updates`. A guarded one-time migration renames the live site's old tables in place (data preserved), carries the passphrase hash over, moves the backups folder, clears old cron events, and deactivates the old plugin entry. Old-format backup files remain importable; device sessions and iPhone PWA installs need a one-time re-login/re-add.</p>"
+			}
+		}
+	},
+	"releases": [
+		{
+			"version": "1.8.0",
+			"released": "2026-07-19",
+			"download_url": "https://blazzzar.github.io/hablab-updates/zips/hablab-1.8.0.zip"
+		}
+	]
+}
