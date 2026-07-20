@@ -4,17 +4,22 @@
 	"homepage": "https://github.com/Blazzzar/hablab",
 	"channels": {
 		"stable": {
-			"version": "1.8.0",
+			"version": "1.9.0",
 			"requires": "5.8",
 			"tested": "6.8",
 			"requires_php": "7.4",
-			"download_url": "https://blazzzar.github.io/hablab-updates/zips/hablab-1.8.0.zip",
+			"download_url": "https://blazzzar.github.io/hablab-updates/zips/hablab-1.9.0.zip",
 			"sections": {
-				"changelog": "<h4>1.8.0</h4><p>Full identity rename: plugin slug/basename is now `hablab/hablab.php`, and every internal identifier moved off the old name — classes `Hablab_*`, constants `HABLAB_*`, `wp_hablab_*` tables, REST namespace `hablab/v1`, auth header `X-Hablab-Token`, options/hooks/nonces `hablab_*`, SW cache + backup format `hablab-*`, repos `Blazzzar/hablab` + `hablab-updates`. A guarded one-time migration renames the live site's old tables in place (data preserved), carries the passphrase hash over, moves the backups folder, clears old cron events, and deactivates the old plugin entry. Old-format backup files remain importable; device sessions and iPhone PWA installs need a one-time re-login/re-add.</p>"
+				"changelog": "<h4>1.9.0</h4><p>Multi-count habits: a habit can require several completions per day. Edit Habit gains a \"Times per day\" field (1–9); `habit_entries.done` is now the day's completion count (schema widened to INT via the version-bump self-heal, `habits.target_count` added), and `SUM(done)` stays continuous with the old two-column era after a merge. Tap cycles the count with wrap (tap at full → 0); confetti fires only on the tap that reaches the target. New CLOCK-FILL dot: 0/N open ring, N/N solid ink dot, partial → open ring plus a clockwise pie wedge (count/target), all in the existing circle theme colours. \"Day success\" (`done >= target_count`) drives streaks, success-rate stats, and the staleness reminders' last-completed query, so a ×2 habit at 1/2 today is still stale-from-yesterday. New \"Merge another column into this habit\" action folds a second habit's per-date counts into the survivor (safety backup first) and deletes the absorbed column — the tool for retiring the old B¹/B² twin columns. REMOVE is now a hard delete (habit row + all its entries) so a removed column leaves no ghost on reload. Archive lock: months before the current one are read-only (circles, weights, and habit add/edit/remove disabled) with a quiet LOCKED tag; the gear menu's \"Unlock this month\" re-enables the viewed archive until you navigate away (per-browser, not persisted). Exercise view slims down: 3 set columns and 6 rows by default, \"+ SET\" reveals sets 4–5 (auto-shown when a row already has data there) and \"add row\" appends more.</p>"
 			}
 		}
 	},
 	"releases": [
+		{
+			"version": "1.9.0",
+			"released": "2026-07-20",
+			"download_url": "https://blazzzar.github.io/hablab-updates/zips/hablab-1.9.0.zip"
+		},
 		{
 			"version": "1.8.0",
 			"released": "2026-07-19",
