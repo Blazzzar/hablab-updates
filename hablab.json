@@ -4,17 +4,22 @@
 	"homepage": "https://github.com/Blazzzar/hablab",
 	"channels": {
 		"stable": {
-			"version": "1.9.1",
+			"version": "1.9.2",
 			"requires": "5.8",
 			"tested": "6.8",
 			"requires_php": "7.4",
-			"download_url": "https://blazzzar.github.io/hablab-updates/zips/hablab-1.9.1.zip",
+			"download_url": "https://blazzzar.github.io/hablab-updates/zips/hablab-1.9.2.zip",
 			"sections": {
-				"changelog": "<h4>1.9.1</h4><p>Editor dialogs (Edit/Add Habit, time-block categories, exercise pickers, gear menu) now open centered in the viewport instead of bottom-justified — the bottom-sheet placement landed too far from the control that opened them. CSS-only: `.sheet-overlay` centers with safe-area padding; `.editor` gets its full border back and even padding.</p>"
+				"changelog": "<h4>1.9.2</h4><p>Multi-count habits show their daily target as a badge superscript — Brush Teeth ×2 with badge B reads B² (the retired twin-column numbering's look, now meaning \"times per day\"; a merged twin's leftover trailing digit is folded into the letter so sups don't stack). The habit sheet narrows to 10 columns: `habit_max` seeds at 10 and a one-time migration nudges a stored 12 down to 10 (wider, squarer cells; deliberate API changes stick).</p>"
 			}
 		}
 	},
 	"releases": [
+		{
+			"version": "1.9.2",
+			"released": "2026-07-21",
+			"download_url": "https://blazzzar.github.io/hablab-updates/zips/hablab-1.9.2.zip"
+		},
 		{
 			"version": "1.9.1",
 			"released": "2026-07-20",
