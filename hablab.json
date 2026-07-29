@@ -4,17 +4,22 @@
 	"homepage": "https://github.com/Blazzzar/hablab",
 	"channels": {
 		"stable": {
-			"version": "1.9.3",
+			"version": "1.9.4",
 			"requires": "5.8",
 			"tested": "6.8",
 			"requires_php": "7.4",
-			"download_url": "https://blazzzar.github.io/hablab-updates/zips/hablab-1.9.3.zip",
+			"download_url": "https://blazzzar.github.io/hablab-updates/zips/hablab-1.9.4.zip",
 			"sections": {
-				"changelog": "<h4>1.9.3</h4><p>Cache fix + month-scoped remove. (1) Root cause of every \"update didn't take effect\" report: nested module imports (`main.js → ./app.js → ./views/*.js`) carry no `?v=` cache-buster, so browsers kept serving stale JS from HTTP cache after updates — this is why 1.9.2's badge superscripts didn't appear. The service worker now fetches with `cache: 'no-cache'` (forced revalidation, cheap 304s) and `app/.htaccess` applies the same rule for non-SW traffic. ONE final hard reload (Cmd+Shift+R) is needed after this update; after that, updates propagate on a normal reload. (2) Removing a habit is now month-scoped: on the viewed sheet's month, a habit born that month (or later) is hard-deleted as before, but a habit with earlier history is RETIRED instead — `ends_on` set to the last day of the previous month, entries from the viewed month forward deleted — so deleting a July habit from the August sheet no longer touches July. Unit-tested (`remove_plan`), demo mock mirrors the server.</p>"
+				"changelog": "<h4>1.9.4</h4><p>Running version shown right of the month selector — and it's honest: the badge reads `APP_VERSION` from the front-end module graph and compares it with the version the server just rendered into the page shell. Match → quiet `v1.9.4`. Mismatch → an inked `v<old> → v<new> · RELOAD` chip, because that state means the browser is executing cached modules while the shell is current (the trap behind \"I updated but nothing changed\"). A build gate keeps `APP_VERSION` and the plugin version in lockstep so the tripwire can't cry wolf.</p>"
 			}
 		}
 	},
 	"releases": [
+		{
+			"version": "1.9.4",
+			"released": "2026-07-29",
+			"download_url": "https://blazzzar.github.io/hablab-updates/zips/hablab-1.9.4.zip"
+		},
 		{
 			"version": "1.9.3",
 			"released": "2026-07-29",
@@ -34,11 +39,6 @@
 			"version": "1.9.0",
 			"released": "2026-07-20",
 			"download_url": "https://blazzzar.github.io/hablab-updates/zips/hablab-1.9.0.zip"
-		},
-		{
-			"version": "1.8.0",
-			"released": "2026-07-19",
-			"download_url": "https://blazzzar.github.io/hablab-updates/zips/hablab-1.8.0.zip"
 		}
 	]
 }
