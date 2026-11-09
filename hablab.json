@@ -12,9 +12,24 @@
 			"sections": {
 				"changelog": "<h4>1.9.4</h4><p>Running version shown right of the month selector — and it's honest: the badge reads `APP_VERSION` from the front-end module graph and compares it with the version the server just rendered into the page shell. Match → quiet `v1.9.4`. Mismatch → an inked `v<old> → v<new> · RELOAD` chip, because that state means the browser is executing cached modules while the shell is current (the trap behind \"I updated but nothing changed\"). A build gate keeps `APP_VERSION` and the plugin version in lockstep so the tripwire can't cry wolf.</p>"
 			}
+		},
+		"beta": {
+			"version": "1.10.0",
+			"requires": "5.8",
+			"tested": "6.8",
+			"requires_php": "7.4",
+			"download_url": "https://blazzzar.github.io/hablab-updates/zips/hablab-1.10.0.zip",
+			"sections": {
+				"changelog": "<h4>1.10.0</h4><p>Sheet-header rework from Chris's markup. Months now read as JAN FEB MAR APRIL MAY JUNE JULY AUG SEPT OCT NOV DEC — in the grid's first-column header (full names overflowed its two-column span and clipped to \"VEMBER\") and in the month selector, so both match. Forward navigation stops one month past the current one: the next sheet stays reachable for staging habits before tracking starts, but the calendar can't wander into empty future months — the `›` arrow dims at the cap, the native month picker gets a `max`, and `changeMonth()` enforces it too so the picker can't jump the fence. The running version and the color workbench both moved into the gear menu: the palette button is gone from the tab bar (five tabs now), the workbench panel opens from \"Color workbench…\", and the version sits as a footer line that still flips to an inked `v<old> → v<new> · RELOAD` when the module graph is stale against the served shell.</p>"
+			}
 		}
 	},
 	"releases": [
+		{
+			"version": "1.10.0",
+			"released": "2026-11-09",
+			"download_url": "https://blazzzar.github.io/hablab-updates/zips/hablab-1.10.0.zip"
+		},
 		{
 			"version": "1.9.4",
 			"released": "2026-07-29",
@@ -34,11 +49,6 @@
 			"version": "1.9.1",
 			"released": "2026-07-20",
 			"download_url": "https://blazzzar.github.io/hablab-updates/zips/hablab-1.9.1.zip"
-		},
-		{
-			"version": "1.9.0",
-			"released": "2026-07-20",
-			"download_url": "https://blazzzar.github.io/hablab-updates/zips/hablab-1.9.0.zip"
 		}
 	]
 }
