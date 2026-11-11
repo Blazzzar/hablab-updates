@@ -4,13 +4,13 @@
 	"homepage": "https://github.com/Blazzzar/hablab",
 	"channels": {
 		"stable": {
-			"version": "1.11.0",
+			"version": "1.11.4",
 			"requires": "5.8",
 			"tested": "6.8",
 			"requires_php": "7.4",
-			"download_url": "https://blazzzar.github.io/hablab-updates/zips/hablab-1.11.0.zip",
+			"download_url": "https://blazzzar.github.io/hablab-updates/zips/hablab-1.11.4.zip",
 			"sections": {
-				"changelog": "<h4>1.11.0</h4><p>Exercise navigation rework (Chris's prototype 2). The wrapping row of date chips is gone: under the day heading sits a Monday→Sunday week strip — weekday letter, dot, day number per cell; solid dot = a workout logged that day, open ring = nothing; selected day in the label colour with a 2px ink outline, today's number underlined bold, Mondays shaded like the sheet's boxed Mondays, days after today dimmed and inert (you can't log a future workout — a staged next-month sheet is read-only), out-of-month days blank. `‹ ›` page a week at a time and stop at the viewed month's first/last week; changing months stays with the sheet's month selector. Tapping the day heading (now with a `▾`, the same tap-the-label idiom as the month name) or the quiet `▾ SHOW MONTH` handle unfolds the strip in place into every Monday-start week of the month under an M–S header (gutters blank, no arrows, no overlay — the sheet stays mounted); picking a day there selects it and folds back to its week. The sheet no longer pads to six empty rows: it shows only rows with content plus one blank, `+ EXERCISE` appends another blank, and `+ SET` still reveals sets 4–5. Empty weight/rep/time/dist inputs ghost the previous session of that exercise (newest row dated before the selected day) as italic ~35% placeholders — never values, so an untouched ghost saves nothing; an exercise's first-ever session simply has no ghost. Server: the month payload gains `exercise_prior` — the newest pre-month row per active exercise from one grouped query — which the client merges with the month's own rows, so picking a day needs no round trip; the demo mock mirrors it and seeds ten August workout days. Week math and the \"newest candidate\" pick live in a new pure `lib/workout.js`, unit-tested under node from `tests.php` alongside new PHP checks for `exercise_prior`.</p>"
+				"changelog": "<h4>1.11.4</h4><p>Kills the stale-module trap at the source. Until now only `main.js` carried a `?v=` cache-buster; every nested import (`./app.js`, `./views/*.js`, `./lib/*.js`, vendor Preact) resolved to a bare URL, so a browser or host cache could keep serving the previous release's module bodies after an update — the state the gear menu reports as `v<old> → v<new> · RELOAD`. The page shell now builds its import map server-side from every file under `app/src/**/*.js` (plus the three vendor modules), mapping each module's absolute URL to its `?v=<version>` twin; import maps match on the resolved URL, so every nested import is rewritten to a brand-new URL per release and no URL-keyed cache can hand back old code. The stale chip is also a real button now: tapping it unregisters the service worker, deletes every app cache and reloads — a hard reload you can reach from the iPhone home-screen app, where Cmd+Shift+R doesn't exist. One last manual hard reload is needed to pick up this build; after that, updates land on a plain reload.</p>"
 			}
 		},
 		"beta": {
