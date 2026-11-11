@@ -4,13 +4,13 @@
 	"homepage": "https://github.com/Blazzzar/hablab",
 	"channels": {
 		"stable": {
-			"version": "1.9.4",
+			"version": "1.10.1",
 			"requires": "5.8",
 			"tested": "6.8",
 			"requires_php": "7.4",
-			"download_url": "https://blazzzar.github.io/hablab-updates/zips/hablab-1.9.4.zip",
+			"download_url": "https://blazzzar.github.io/hablab-updates/zips/hablab-1.10.1.zip",
 			"sections": {
-				"changelog": "<h4>1.9.4</h4><p>Running version shown right of the month selector — and it's honest: the badge reads `APP_VERSION` from the front-end module graph and compares it with the version the server just rendered into the page shell. Match → quiet `v1.9.4`. Mismatch → an inked `v<old> → v<new> · RELOAD` chip, because that state means the browser is executing cached modules while the shell is current (the trap behind \"I updated but nothing changed\"). A build gate keeps `APP_VERSION` and the plugin version in lockstep so the tripwire can't cry wolf.</p>"
+				"changelog": "<h4>1.10.1</h4><p>Backward navigation now stops at the earliest month that holds data, so the `‹` arrow can't walk into months that never existed. The floor is computed server-side (`first_data_month()` — MIN across habit entries, weights, time-block entries and workout rows) and shipped in the bootstrap payload; the arrow dims there, the native month picker gets a matching `min`, and `changeMonth()` enforces it so the picker can't jump below the floor either. An empty install floors at the current month, and a view that somehow sits below the floor can still navigate out. Demo mock mirrors the server rule.</p>"
 			}
 		},
 		"beta": {
@@ -25,6 +25,11 @@
 		}
 	},
 	"releases": [
+		{
+			"version": "1.10.1",
+			"released": "2026-11-11",
+			"download_url": "https://blazzzar.github.io/hablab-updates/zips/hablab-1.10.1.zip"
+		},
 		{
 			"version": "1.10.0",
 			"released": "2026-11-09",
@@ -44,11 +49,6 @@
 			"version": "1.9.2",
 			"released": "2026-07-21",
 			"download_url": "https://blazzzar.github.io/hablab-updates/zips/hablab-1.9.2.zip"
-		},
-		{
-			"version": "1.9.1",
-			"released": "2026-07-20",
-			"download_url": "https://blazzzar.github.io/hablab-updates/zips/hablab-1.9.1.zip"
 		}
 	]
 }
