@@ -4,13 +4,13 @@
 	"homepage": "https://github.com/Blazzzar/hablab",
 	"channels": {
 		"stable": {
-			"version": "1.10.1",
+			"version": "1.11.0",
 			"requires": "5.8",
 			"tested": "6.8",
 			"requires_php": "7.4",
-			"download_url": "https://blazzzar.github.io/hablab-updates/zips/hablab-1.10.1.zip",
+			"download_url": "https://blazzzar.github.io/hablab-updates/zips/hablab-1.11.0.zip",
 			"sections": {
-				"changelog": "<h4>1.10.1</h4><p>Backward navigation now stops at the earliest month that holds data, so the `‹` arrow can't walk into months that never existed. The floor is computed server-side (`first_data_month()` — MIN across habit entries, weights, time-block entries and workout rows) and shipped in the bootstrap payload; the arrow dims there, the native month picker gets a matching `min`, and `changeMonth()` enforces it so the picker can't jump below the floor either. An empty install floors at the current month, and a view that somehow sits below the floor can still navigate out. Demo mock mirrors the server rule.</p>"
+				"changelog": "<h4>1.11.0</h4><p>Exercise navigation rework (Chris's prototype 2). The wrapping row of date chips is gone: under the day heading sits a Monday→Sunday week strip — weekday letter, dot, day number per cell; solid dot = a workout logged that day, open ring = nothing; selected day in the label colour with a 2px ink outline, today's number underlined bold, Mondays shaded like the sheet's boxed Mondays, days after today dimmed and inert (you can't log a future workout — a staged next-month sheet is read-only), out-of-month days blank. `‹ ›` page a week at a time and stop at the viewed month's first/last week; changing months stays with the sheet's month selector. Tapping the day heading (now with a `▾`, the same tap-the-label idiom as the month name) or the quiet `▾ SHOW MONTH` handle unfolds the strip in place into every Monday-start week of the month under an M–S header (gutters blank, no arrows, no overlay — the sheet stays mounted); picking a day there selects it and folds back to its week. The sheet no longer pads to six empty rows: it shows only rows with content plus one blank, `+ EXERCISE` appends another blank, and `+ SET` still reveals sets 4–5. Empty weight/rep/time/dist inputs ghost the previous session of that exercise (newest row dated before the selected day) as italic ~35% placeholders — never values, so an untouched ghost saves nothing; an exercise's first-ever session simply has no ghost. Server: the month payload gains `exercise_prior` — the newest pre-month row per active exercise from one grouped query — which the client merges with the month's own rows, so picking a day needs no round trip; the demo mock mirrors it and seeds ten August workout days. Week math and the \"newest candidate\" pick live in a new pure `lib/workout.js`, unit-tested under node from `tests.php` alongside new PHP checks for `exercise_prior`.</p>"
 			}
 		},
 		"beta": {
