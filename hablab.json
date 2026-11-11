@@ -14,17 +14,22 @@
 			}
 		},
 		"beta": {
-			"version": "1.11.1",
+			"version": "1.11.2",
 			"requires": "5.8",
 			"tested": "6.8",
 			"requires_php": "7.4",
-			"download_url": "https://blazzzar.github.io/hablab-updates/zips/hablab-1.11.1.zip",
+			"download_url": "https://blazzzar.github.io/hablab-updates/zips/hablab-1.11.2.zip",
 			"sections": {
-				"changelog": "<h4>1.11.1</h4><p>Month arrows are plain back/next again. The month picker was a transparent native `<input type=\"month\">` laid over the month name, and native date inputs won't shrink below their intrinsic width — on Safari/iOS it overflowed onto both `‹ ›` buttons and swallowed their taps, opening the picker instead of stepping. Now the month name is a real button that opens the picker programmatically (`showPicker()` where supported, synthetic click otherwise) and the input is inert (`pointer-events: none`), parked under the name only so the picker anchors there.</p>"
+				"changelog": "<h4>1.11.2</h4><p>The hidden month-picker input is now hidden by an inline style as well as the stylesheet, so a browser holding a stale `styles.css` alongside fresh JavaScript can't render it as a visible \"2026-08\" box beside the month name (seen once on the beta channel). No behavior change.</p>"
 			}
 		}
 	},
 	"releases": [
+		{
+			"version": "1.11.2",
+			"released": "2026-11-11",
+			"download_url": "https://blazzzar.github.io/hablab-updates/zips/hablab-1.11.2.zip"
+		},
 		{
 			"version": "1.11.1",
 			"released": "2026-11-11",
@@ -44,11 +49,6 @@
 			"version": "1.10.0",
 			"released": "2026-11-09",
 			"download_url": "https://blazzzar.github.io/hablab-updates/zips/hablab-1.10.0.zip"
-		},
-		{
-			"version": "1.9.4",
-			"released": "2026-07-29",
-			"download_url": "https://blazzzar.github.io/hablab-updates/zips/hablab-1.9.4.zip"
 		}
 	]
 }
