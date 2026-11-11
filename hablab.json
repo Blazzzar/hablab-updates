@@ -14,17 +14,22 @@
 			}
 		},
 		"beta": {
-			"version": "1.11.3",
+			"version": "1.11.4",
 			"requires": "5.8",
 			"tested": "6.8",
 			"requires_php": "7.4",
-			"download_url": "https://blazzzar.github.io/hablab-updates/zips/hablab-1.11.3.zip",
+			"download_url": "https://blazzzar.github.io/hablab-updates/zips/hablab-1.11.4.zip",
 			"sections": {
-				"changelog": "<h4>1.11.3</h4><p>The month picker is now drawn in-app instead of relying on the browser's native month control, which desktop Safari and Firefox don't implement (they render a bare text box, so nothing opened there — only Chrome ever showed a picker). Tapping the month name opens a paper-style card under the selector: the year with ‹ › and a 4×3 grid of that year's months in the sheet's abbreviations, bounded by the same floor/max the arrows obey (out-of-range months dimmed, year arrows stop where no month is reachable); the current month is inked; tap outside or Esc closes. The hidden native input is gone entirely. Helpers `monthChoices` / `yearHasChoices` unit-tested.</p>"
+				"changelog": "<h4>1.11.4</h4><p>Kills the stale-module trap at the source. Until now only `main.js` carried a `?v=` cache-buster; every nested import (`./app.js`, `./views/*.js`, `./lib/*.js`, vendor Preact) resolved to a bare URL, so a browser or host cache could keep serving the previous release's module bodies after an update — the state the gear menu reports as `v<old> → v<new> · RELOAD`. The page shell now builds its import map server-side from every file under `app/src/**/*.js` (plus the three vendor modules), mapping each module's absolute URL to its `?v=<version>` twin; import maps match on the resolved URL, so every nested import is rewritten to a brand-new URL per release and no URL-keyed cache can hand back old code. The stale chip is also a real button now: tapping it unregisters the service worker, deletes every app cache and reloads — a hard reload you can reach from the iPhone home-screen app, where Cmd+Shift+R doesn't exist. One last manual hard reload is needed to pick up this build; after that, updates land on a plain reload.</p>"
 			}
 		}
 	},
 	"releases": [
+		{
+			"version": "1.11.4",
+			"released": "2026-11-11",
+			"download_url": "https://blazzzar.github.io/hablab-updates/zips/hablab-1.11.4.zip"
+		},
 		{
 			"version": "1.11.3",
 			"released": "2026-11-11",
@@ -44,11 +49,6 @@
 			"version": "1.11.0",
 			"released": "2026-11-11",
 			"download_url": "https://blazzzar.github.io/hablab-updates/zips/hablab-1.11.0.zip"
-		},
-		{
-			"version": "1.10.1",
-			"released": "2026-11-11",
-			"download_url": "https://blazzzar.github.io/hablab-updates/zips/hablab-1.10.1.zip"
 		}
 	]
 }
